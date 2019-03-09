@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		445C7B6C221B51F50075B7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7B6B221B51F50075B7D8 /* AppDelegate.swift */; };
-		445C7B6E221B51F50075B7D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7B6D221B51F50075B7D8 /* ViewController.swift */; };
 		445C7B71221B51F50075B7D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445C7B6F221B51F50075B7D8 /* Main.storyboard */; };
 		445C7B74221B51F50075B7D8 /* ortbalsn_challenge_core_data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 445C7B72221B51F50075B7D8 /* ortbalsn_challenge_core_data.xcdatamodeld */; };
 		445C7B76221B51F60075B7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445C7B75221B51F60075B7D8 /* Assets.xcassets */; };
 		445C7B79221B51F60075B7D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445C7B77221B51F60075B7D8 /* LaunchScreen.storyboard */; };
 		445C7B84221B51F60075B7D8 /* ortbalsn_challenge_core_dataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7B83221B51F60075B7D8 /* ortbalsn_challenge_core_dataTests.swift */; };
 		445C7B8F221B51F60075B7D8 /* ortbalsn_challenge_core_dataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7B8E221B51F60075B7D8 /* ortbalsn_challenge_core_dataUITests.swift */; };
+		445C7B9F221B56890075B7D8 /* DocumentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7B9E221B56890075B7D8 /* DocumentsTableViewController.swift */; };
+		445C7BA1221B56E30075B7D8 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7BA0221B56E30075B7D8 /* DocumentViewController.swift */; };
+		445C7BAC221B596C0075B7D8 /* Document+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7BAA221B596C0075B7D8 /* Document+CoreDataClass.swift */; };
+		445C7BAD221B596C0075B7D8 /* Document+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7BAB221B596C0075B7D8 /* Document+CoreDataProperties.swift */; };
+		445C7BAF221B69B10075B7D8 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C7BAE221B69B10075B7D8 /* DocumentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 /* Begin PBXFileReference section */
 		445C7B68221B51F50075B7D8 /* ortbalsn-challenge-core-data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ortbalsn-challenge-core-data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		445C7B6B221B51F50075B7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		445C7B6D221B51F50075B7D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		445C7B70221B51F50075B7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		445C7B73221B51F50075B7D8 /* ortbalsn_challenge_core_data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ortbalsn_challenge_core_data.xcdatamodel; sourceTree = "<group>"; };
 		445C7B75221B51F60075B7D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		445C7B8A221B51F60075B7D8 /* ortbalsn-challenge-core-dataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ortbalsn-challenge-core-dataUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		445C7B8E221B51F60075B7D8 /* ortbalsn_challenge_core_dataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ortbalsn_challenge_core_dataUITests.swift; sourceTree = "<group>"; };
 		445C7B90221B51F60075B7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		445C7B9E221B56890075B7D8 /* DocumentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsTableViewController.swift; sourceTree = "<group>"; };
+		445C7BA0221B56E30075B7D8 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		445C7BAA221B596C0075B7D8 /* Document+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+CoreDataClass.swift"; sourceTree = "<group>"; };
+		445C7BAB221B596C0075B7D8 /* Document+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		445C7BAE221B69B10075B7D8 /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +107,17 @@
 		445C7B6A221B51F50075B7D8 /* ortbalsn-challenge-core-data */ = {
 			isa = PBXGroup;
 			children = (
+				445C7BAA221B596C0075B7D8 /* Document+CoreDataClass.swift */,
+				445C7BAB221B596C0075B7D8 /* Document+CoreDataProperties.swift */,
 				445C7B6B221B51F50075B7D8 /* AppDelegate.swift */,
-				445C7B6D221B51F50075B7D8 /* ViewController.swift */,
 				445C7B6F221B51F50075B7D8 /* Main.storyboard */,
 				445C7B75221B51F60075B7D8 /* Assets.xcassets */,
 				445C7B77221B51F60075B7D8 /* LaunchScreen.storyboard */,
 				445C7B7A221B51F60075B7D8 /* Info.plist */,
 				445C7B72221B51F50075B7D8 /* ortbalsn_challenge_core_data.xcdatamodeld */,
+				445C7B9E221B56890075B7D8 /* DocumentsTableViewController.swift */,
+				445C7BA0221B56E30075B7D8 /* DocumentViewController.swift */,
+				445C7BAE221B69B10075B7D8 /* DocumentTableViewCell.swift */,
 			);
 			path = "ortbalsn-challenge-core-data";
 			sourceTree = "<group>";
@@ -259,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				445C7B6E221B51F50075B7D8 /* ViewController.swift in Sources */,
+				445C7BAD221B596C0075B7D8 /* Document+CoreDataProperties.swift in Sources */,
 				445C7B6C221B51F50075B7D8 /* AppDelegate.swift in Sources */,
+				445C7BA1221B56E30075B7D8 /* DocumentViewController.swift in Sources */,
+				445C7B9F221B56890075B7D8 /* DocumentsTableViewController.swift in Sources */,
+				445C7BAC221B596C0075B7D8 /* Document+CoreDataClass.swift in Sources */,
 				445C7B74221B51F50075B7D8 /* ortbalsn_challenge_core_data.xcdatamodeld in Sources */,
+				445C7BAF221B69B10075B7D8 /* DocumentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
