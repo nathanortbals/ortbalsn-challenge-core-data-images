@@ -9,15 +9,15 @@
 import UIKit
 import CoreData
 
-class DocumentsTableViewController: UITableViewController {
+class ImagesTableViewController: UITableViewController {
     
     @IBAction func addButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "moveToNewDocument", sender: nil)
+        self.performSegue(withIdentifier: "moveToNewImage", sender: nil)
     }
     
     @IBOutlet weak var addButtonItem: UIBarButtonItem!
     
-    var documents = [Document]()
+    var images = [Image]()
     
     let dateFormatter = DateFormatter()
     
@@ -34,37 +34,34 @@ class DocumentsTableViewController: UITableViewController {
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<Document> = Document.fetchRequest()
+        let fetchRequest: NSFetchRequest<Image> = Image.fetchRequest()
         
         do {
-            documents = try managedContext.fetch(fetchRequest)
+            images = try managedContext.fetch(fetchRequest)
             
             tableView.reloadData()
         } catch {
-            print("Could not fetch documents")
+            print("Could not fetch images")
         }
     }
     
-    func deleteDocument(at indexPath: IndexPath) {
-        let document = documents[indexPath.row]
+    func deleteImage(at indexPath: IndexPath) {
+        let image = images[indexPath.row]
         
-        if let managedContext = document.managedObjectContext {
-            managedContext.delete(document)
+        if let managedContext = image.managedObjectContext {
+            managedContext.delete(image)
             
             do {
                 try managedContext.save()
-                
-                self.documents.remove(at: indexPath.row)
-                
+                self.images.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 
             } catch{
-                print("Could not delete document")
+                print("Could not delete image")
                 
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
             }
         }
-        
     }
 
     // MARK: - Table view data source
@@ -74,21 +71,21 @@ class DocumentsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return documents.count
+        return images.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "documentCell", for: indexPath)
-        let document = documents[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath)
+        let image = images[indexPath.row]
         
-        if let cell = cell as? DocumentTableViewCell {
-            cell.titleLabel.text = document.title
+        if let cell = cell as? ImageTableViewCell {
+            cell.titleLabel.text = image.title
             
-            if let dateModified = document.dateModified {
+            if let dateModified = image.dateModified {
                 cell.modifiedLabel.text = dateFormatter.string(from: dateModified)
             }
             
-            if let size = document.size {
+            if let size = image.size {
                 cell.sizeLabel.text = String(size) + " bytes"
             }
             else {
@@ -100,22 +97,22 @@ class DocumentsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DocumentViewController {
+        if let destination = segue.destination as? ImageViewController {
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let selectedRow = indexPath.row
-                destination.existingDocument = self.documents[selectedRow]
+                destination.existingImage = self.images[selectedRow]
             }
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "moveToNewDocument", sender: nil)
+        self.performSegue(withIdentifier: "moveToNewImage", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete) {
-            deleteDocument(at: indexPath)
+            deleteImage(at: indexPath)
         }
     }
 }

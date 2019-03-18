@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Documents-->
+        <!--Images-->
         <scene sceneID="FOS-KZ-kkw">
             <objects>
-                <tableViewController id="XhH-ke-xjf" customClass="DocumentsTableViewController" customModule="ortbalsn_challenge_core_data" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XhH-ke-xjf" customClass="ImagesTableViewController" customModule="ortbalsn_challenge_core_data_images" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q4A-iE-xe6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="documentCell" rowHeight="75" id="pem-C3-1dV" customClass="DocumentTableViewCell" customModule="ortbalsn_challenge_core_data" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="75" id="pem-C3-1dV" customClass="ImageTableViewCell" customModule="ortbalsn_challenge_core_data_images" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pem-C3-1dV" id="K2s-ZY-fTj">
@@ -69,7 +69,7 @@
                             <outlet property="delegate" destination="XhH-ke-xjf" id="AOS-RW-Mo3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Documents" id="yt6-Pf-D8h">
+                    <navigationItem key="navigationItem" title="Images" id="yt6-Pf-D8h">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OH9-PA-EGq">
                             <connections>
                                 <action selector="addButton:" destination="XhH-ke-xjf" id="VrA-v1-3sG"/>
@@ -79,7 +79,7 @@
                     <connections>
                         <outlet property="addButtonItem" destination="OH9-PA-EGq" id="EDh-oc-E8Z"/>
                         <outlet property="tableView" destination="Q4A-iE-xe6" id="Sad-V5-FMd"/>
-                        <segue destination="BHX-JL-TXf" kind="show" identifier="moveToNewDocument" id="2cS-IS-gVC"/>
+                        <segue destination="BHX-JL-TXf" kind="show" identifier="moveToNewImage" id="2cS-IS-gVC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNQ-os-NQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -102,20 +102,14 @@
             </objects>
             <point key="canvasLocation" x="-446" y="-484"/>
         </scene>
-        <!--Document View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="Suz-En-uSG">
             <objects>
-                <viewController id="BHX-JL-TXf" customClass="DocumentViewController" customModule="ortbalsn_challenge_core_data" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BHX-JL-TXf" customClass="ImageViewController" customModule="ortbalsn_challenge_core_data_images" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uht-Rq-Cb0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t33-ju-onD">
-                                <rect key="frame" x="10" y="105" width="355" height="552"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPN-bK-o8l">
                                 <rect key="frame" x="10" y="74" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -128,23 +122,47 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLc-EP-a4F">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JpT-ZN-n7s"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="dD5-F7-Dzr">
+                                        <connections>
+                                            <action selector="openCamera:" destination="BHX-JL-TXf" id="uFg-Js-Lnk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="organize" id="4Rd-t3-d5j">
+                                        <connections>
+                                            <action selector="openPhotoLibrary:" destination="BHX-JL-TXf" id="2WP-QF-uTu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3D-0u-zRt">
+                                <rect key="frame" x="0.0" y="104" width="375" height="514"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93963867489999997" green="0.93963867489999997" blue="0.93963867489999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZUm-uh-Zce" firstAttribute="bottom" secondItem="t33-ju-onD" secondAttribute="bottom" constant="10" id="8Kr-cr-HKD"/>
-                            <constraint firstItem="t33-ju-onD" firstAttribute="top" secondItem="RPN-bK-o8l" secondAttribute="bottom" constant="10" id="928-mw-k4t"/>
+                            <constraint firstItem="ZUm-uh-Zce" firstAttribute="trailing" secondItem="S3D-0u-zRt" secondAttribute="trailing" id="1nf-SV-rlh"/>
+                            <constraint firstItem="LLc-EP-a4F" firstAttribute="trailing" secondItem="ZUm-uh-Zce" secondAttribute="trailing" id="5qk-aD-EqW"/>
                             <constraint firstItem="RPN-bK-o8l" firstAttribute="leading" secondItem="ZUm-uh-Zce" secondAttribute="leading" constant="10" id="A5A-tc-jkR"/>
+                            <constraint firstItem="LLc-EP-a4F" firstAttribute="bottom" secondItem="ZUm-uh-Zce" secondAttribute="bottom" id="Av9-ui-DaY"/>
+                            <constraint firstItem="LLc-EP-a4F" firstAttribute="top" secondItem="S3D-0u-zRt" secondAttribute="bottom" constant="5" id="Fnv-X7-PSh"/>
+                            <constraint firstItem="LLc-EP-a4F" firstAttribute="leading" secondItem="ZUm-uh-Zce" secondAttribute="leading" id="GJZ-yq-L17"/>
                             <constraint firstItem="c3Z-fl-maM" firstAttribute="top" secondItem="ZUm-uh-Zce" secondAttribute="top" constant="5" id="JgX-QT-CpG"/>
                             <constraint firstItem="RPN-bK-o8l" firstAttribute="top" secondItem="ZUm-uh-Zce" secondAttribute="top" constant="10" id="L3i-iw-yqX"/>
-                            <constraint firstItem="t33-ju-onD" firstAttribute="leading" secondItem="ZUm-uh-Zce" secondAttribute="leading" constant="10" id="SFi-D7-ZZy"/>
+                            <constraint firstItem="S3D-0u-zRt" firstAttribute="leading" secondItem="ZUm-uh-Zce" secondAttribute="leading" id="Y9y-bC-XgA"/>
                             <constraint firstItem="c3Z-fl-maM" firstAttribute="leading" secondItem="RPN-bK-o8l" secondAttribute="trailing" constant="7" id="ZH0-Nf-Vdz"/>
                             <constraint firstItem="ZUm-uh-Zce" firstAttribute="trailing" secondItem="c3Z-fl-maM" secondAttribute="trailing" constant="10" id="aWD-Bj-vmq"/>
-                            <constraint firstItem="ZUm-uh-Zce" firstAttribute="trailing" secondItem="t33-ju-onD" secondAttribute="trailing" constant="10" id="nTd-I6-9w3"/>
+                            <constraint firstItem="S3D-0u-zRt" firstAttribute="top" secondItem="c3Z-fl-maM" secondAttribute="bottom" constant="5" id="jIz-tR-arQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZUm-uh-Zce"/>
                     </view>
                     <connections>
-                        <outlet property="contentTextView" destination="t33-ju-onD" id="Fyz-gS-IZr"/>
+                        <outlet property="imageView" destination="S3D-0u-zRt" id="9pX-Am-KXq"/>
                         <outlet property="titleTextField" destination="c3Z-fl-maM" id="Yvr-co-kMy"/>
                     </connections>
                 </viewController>
